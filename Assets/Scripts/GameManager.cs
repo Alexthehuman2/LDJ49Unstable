@@ -20,4 +20,9 @@ public class GameManager : MonoBehaviour
     {
         Player.transform.position = Spawn.transform.position;
     }
+
+    public void OnPlayerDeath()
+    {
+        MovePlayerToSpawn(); // ???
+    }
 }

@@ -99,5 +99,17 @@ public class CharacterMovement2D : MonoBehaviour
             stopMovingEvent.Invoke();
         }
     }
+
+    public void OnInvertGravity()
+    {
+        // flip gravity
+        _rigidbody.gravityScale *= -1;
+        jumpForce = -jumpForce;
+        
+        // invert position of ground and side checks
+        groundPoint.position = (transform.position - groundPoint.position) * 2;
+        /*leftPoint.position   = (transform.position -= leftPoint.position)   * 2;
+        rightPoint.position  = (transform.position -= rightPoint.position)  * 2;*/
+    }
     
 }
