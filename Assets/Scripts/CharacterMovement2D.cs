@@ -100,7 +100,7 @@ public class CharacterMovement2D : MonoBehaviour
         {
             stopMovingEvent.Invoke();
         }
-        
+
         if (move != 0 && lastMove == 0)
         {
             startMovingEvent.Invoke();
@@ -122,7 +122,10 @@ public class CharacterMovement2D : MonoBehaviour
 
         y = transform.position.y - rightPoint.transform.position.y;
         rightPoint.position = new Vector2(rightPoint.position.x, transform.position.y + y);
-
     }
     
+    public void mirror()
+    {
+        transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+    }
 }

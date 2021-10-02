@@ -223,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 744172932}
   - component: {fileID: 744172931}
+  - component: {fileID: 744172933}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -256,6 +257,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744172933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744172930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4000a81d86eac7b40974c86eada07533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  val: 0
 --- !u!1 &1177015546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1534,7 @@ GameObject:
   - component: {fileID: 1934190263}
   - component: {fileID: 1934190262}
   - component: {fileID: 1934190261}
+  - component: {fileID: 1934190268}
   - component: {fileID: 1934190267}
   m_Layer: 0
   m_Name: Character
@@ -1565,13 +1580,49 @@ MonoBehaviour:
         m_CallState: 2
   jumpEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1934190268}
+        m_TargetAssemblyTypeName: AnimatorScript, Assembly-CSharp
+        m_MethodName: startJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   landEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1934190268}
+        m_TargetAssemblyTypeName: AnimatorScript, Assembly-CSharp
+        m_MethodName: endJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stopMovingEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1934190268}
+        m_TargetAssemblyTypeName: AnimatorScript, Assembly-CSharp
+        m_MethodName: endMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _isGrounded: 1
 --- !u!50 &1934190262
 Rigidbody2D:
@@ -1723,6 +1774,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1934190268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934190260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3167353293e5db041a81ba37071a9b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2088236535
 GameObject:
   m_ObjectHideFlags: 0
