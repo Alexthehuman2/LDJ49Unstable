@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 86392903}
   - component: {fileID: 86392902}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 594490574}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 483497104}
   - component: {fileID: 483497103}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,8 +599,8 @@ RectTransform:
   - {fileID: 86392901}
   - {fileID: 483497102}
   - {fileID: 2045588047}
-  - {fileID: 328298294}
   - {fileID: 606680248}
+  - {fileID: 328298294}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 606680251}
   - component: {fileID: 606680250}
   - component: {fileID: 606680249}
+  - component: {fileID: 606680252}
   m_Layer: 5
   m_Name: StartGame
   m_TagString: Untagged
@@ -635,17 +636,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606680247}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 670187670}
   m_Father: {fileID: 594490574}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -38.79001}
+  m_AnchoredPosition: {x: -0.000106809995, y: -51}
   m_SizeDelta: {x: 416.92, y: 77.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &606680249
@@ -691,7 +692,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 606680250}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 606680252}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &606680250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +743,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606680247}
   m_CullTransparentMesh: 1
+--- !u!114 &606680252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606680247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bbd9f34b9c5a24ba4027553d019fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &670187669
 GameObject:
   m_ObjectHideFlags: 0
