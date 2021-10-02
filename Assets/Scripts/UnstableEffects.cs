@@ -43,7 +43,7 @@ public class UnstableEffects : MonoBehaviour
             {
                 title.color = Color.cyan;
             }
-            if (Random.Range(min_rando, max_rando) > 6)
+            if (Random.Range(min_rando, max_rando) > 7)
             {
                 title_anim.GetComponent<Animator>().SetBool("titleDroppable", true);
             }
@@ -65,7 +65,7 @@ public class UnstableEffects : MonoBehaviour
                 title.color = Color.cyan;
             }
 
-            if (Random.Range(min_rando, max_rando) > 5)
+            if (Random.Range(min_rando, max_rando) > 6)
             {
                 start_game.gameObject.transform.localScale = new Vector3(start_game.gameObject.transform.localScale.x * -1, 1, 1);
             }
