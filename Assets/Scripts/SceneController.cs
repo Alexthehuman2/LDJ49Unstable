@@ -5,21 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public void StartGame()
-    {
-        SceneManager.LoadScene(1);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1); //Loads the first scene in build setting
         }
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            SceneManager.LoadScene(2); //Loads the second etc.
+        }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1); //Loads the first Scene in Build setting
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0); //Loads the 0th Scene in Build Setting
     }
 
     private void ExitGame()
     {
-        Application.Quit();
+        Application.Quit(); //Exits the game when the game is built.
     }
 }
