@@ -18,7 +18,9 @@ public class CharacterMovement2D : MonoBehaviour
     [SerializeField] private UnityEvent jumpEvent = default;
     [SerializeField] private UnityEvent landEvent = default;
     [SerializeField] private UnityEvent stopMovingEvent = default;
+    [SerializeField] private UnityEvent startMovingEvent = default;
 
+    
     [SerializeField]private bool _isGrounded = false;
     private bool _direction = true; // false left, true right
     private float _move = 0;
@@ -98,6 +100,11 @@ public class CharacterMovement2D : MonoBehaviour
         {
             stopMovingEvent.Invoke();
         }
+        
+        if (move != 0 && lastMove == 0)
+        {
+            startMovingEvent.Invoke();
+        }
     }
 
     public void OnInvertGravity()
@@ -107,9 +114,15 @@ public class CharacterMovement2D : MonoBehaviour
         jumpForce = -jumpForce;
         
         // invert position of ground and side checks
-        groundPoint.position = (transform.position - groundPoint.position) * 2;
-        /*leftPoint.position   = (transform.position -= leftPoint.position)   * 2;
-        rightPoint.position  = (transform.position -= rightPoint.position)  * 2;*/
+        var y = transform.position.y - groundPoint.transform.position.y;
+        groundPoint.position = new Vector2(groundPoint.position.x, transform.position.y + y);
+
+        y = transform.position.y - leftPoint.transform.position.y;
+        leftPoint.position = new Vector2(leftPoint.position.x, transform.position.y + y);
+
+        y = transform.position.y - rightPoint.transform.position.y;
+        rightPoint.position = new Vector2(rightPoint.position.x, transform.position.y + y);
+
     }
     
 }
