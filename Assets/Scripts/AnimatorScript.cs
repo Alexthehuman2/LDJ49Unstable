@@ -4,29 +4,41 @@ using UnityEngine;
 
 public class AnimatorScript : MonoBehaviour
 {
-    private Animator anim;
+    private Animator _anim;
+    private SpriteRenderer _renderer;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     public void startJump()
     {
-        anim.SetBool("isJumping", true);
+        _anim.SetBool("isJumping", true);
     }
     public void endJump()
     {
-        anim.SetBool("isJumping", false);
+        _anim.SetBool("isJumping", false);
     }
 
     public void startMoving()
     {
-        anim.SetBool("isMoving", true);
+        _anim.SetBool("isMoving", true);
     }
 
     public void endMoving()
     {
-        anim.SetBool("isMoving", false);
+        _anim.SetBool("isMoving", false);
+    }
+
+    public void FlipSpriteX()
+    {
+        _renderer.flipX = !_renderer.flipX;
+    }
+    
+    public void FlipSpriteY()
+    {
+        _renderer.flipY = !_renderer.flipY;
     }
 }

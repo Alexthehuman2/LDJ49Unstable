@@ -124,8 +124,4 @@ public class CharacterMovement2D : MonoBehaviour
         rightPoint.position = new Vector2(rightPoint.position.x, transform.position.y + y);
     }
     
-    public void mirror()
-    {
-        transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
-    }
 }
