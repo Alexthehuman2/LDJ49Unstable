@@ -16,8 +16,10 @@ public class CharacterMovement2D : MonoBehaviour
     
     [SerializeField] private UnityEvent changeDirectionEvent = default;
     [SerializeField] private UnityEvent jumpEvent = default;
-    
-    private bool _isGrounded = true;
+    [SerializeField] private UnityEvent landEvent = default;
+    [SerializeField] private UnityEvent stopMovingEvent = default;
+
+    [SerializeField]private bool _isGrounded = false;
     private bool _direction = true; // false left, true right
     private float _move = 0;
     
@@ -31,15 +33,20 @@ public class CharacterMovement2D : MonoBehaviour
 
     private void Update()
     {
-        // Update Movement
+        // Get axis input
+        var lastMove = _move;
         _move = Input.GetAxis("Horizontal");
+
+        CheckStopMoving(_move, lastMove);
+        
+        // apply velocity
         _rigidbody.velocity = new Vector2(moveSpeed * _move, _rigidbody.velocity.y);
         
         CheckDirection();
         SlideDownWalls();
 
         // Jump
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
             jumpEvent.Invoke();
             _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -49,7 +56,16 @@ public class CharacterMovement2D : MonoBehaviour
     private bool IsGrounded()
     {
         var colliders = Physics2D.OverlapCircleAll(groundPoint.position, .05f, groundLayer);
+
+        var wasGrounded = _isGrounded;
         _isGrounded = colliders.Length > 0;
+        
+        if (!wasGrounded && _isGrounded)
+        {
+            landEvent.Invoke();
+            _isGrounded = true;
+        }
+
         return _isGrounded;
     }
 
@@ -73,6 +89,14 @@ public class CharacterMovement2D : MonoBehaviour
         if (left > 0 && !_direction || right > 0 && _direction)
         {
             _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+        }
+    }
+
+    private void CheckStopMoving(float move, float lastMove)
+    {
+        if (move == 0 && lastMove != 0)
+        {
+            stopMovingEvent.Invoke();
         }
     }
     

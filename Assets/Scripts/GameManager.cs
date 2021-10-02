@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject Spawn = default;
+    private GameObject Player = default;
+    
+    private void Start()
     {
+        Spawn = GameObject.FindGameObjectWithTag("Spawn");
+        Player = GameObject.FindGameObjectWithTag("Player");
         
+        MovePlayerToSpawn();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MovePlayerToSpawn()
     {
-        
+        Player.transform.position = Spawn.transform.position;
     }
 }
