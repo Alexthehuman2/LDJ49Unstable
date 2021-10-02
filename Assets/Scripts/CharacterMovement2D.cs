@@ -18,6 +18,7 @@ public class CharacterMovement2D : MonoBehaviour
     [SerializeField] private UnityEvent jumpEvent = default;
     [SerializeField] private UnityEvent landEvent = default;
     [SerializeField] private UnityEvent stopMovingEvent = default;
+    [SerializeField] private UnityEvent startMovingEvent = default;
 
     [SerializeField]private bool _isGrounded = false;
     private bool _direction = true; // false left, true right
@@ -98,6 +99,14 @@ public class CharacterMovement2D : MonoBehaviour
         {
             stopMovingEvent.Invoke();
         }
+        if (move != 0 && lastMove == 0)
+        {
+            startMovingEvent.Invoke();
+        }
     }
     
+    public void mirror()
+    {
+        transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+    }
 }
