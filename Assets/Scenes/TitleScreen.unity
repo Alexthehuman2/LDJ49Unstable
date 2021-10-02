@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4000a81d86eac7b40974c86eada07533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  val: 12
+  val: 19
 --- !u!4 &494769279
 Transform:
   m_ObjectHideFlags: 0
@@ -670,10 +670,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start_game: {fileID: 606680249}
   buttonAnim: {fileID: 2045588051}
+  title_player_anim: {fileID: 1238195997}
+  title_anim: {fileID: 594490576}
   start_text: {fileID: 670187671}
   title: {fileID: 483497103}
   min_rando: 1
   max_rando: 10
+  bg: {fileID: 86392902}
 --- !u!95 &594490576
 Animator:
   serializedVersion: 3
