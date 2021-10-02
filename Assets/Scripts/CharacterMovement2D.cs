@@ -113,6 +113,11 @@ public class CharacterMovement2D : MonoBehaviour
         _rigidbody.gravityScale *= -1;
         jumpForce = -jumpForce;
         
+        InvertCollisionPoints();
+    }
+
+    private void InvertCollisionPoints()
+    {
         // invert position of ground and side checks
         var y = transform.position.y - groundPoint.transform.position.y;
         groundPoint.position = new Vector2(groundPoint.position.x, transform.position.y + y);
@@ -123,5 +128,14 @@ public class CharacterMovement2D : MonoBehaviour
         y = transform.position.y - rightPoint.transform.position.y;
         rightPoint.position = new Vector2(rightPoint.position.x, transform.position.y + y);
     }
-    
+
+    public void Reset()
+    {
+        if (_rigidbody.gravityScale < 0)
+        {
+            OnInvertGravity();
+        }
+        
+        _rigidbody.velocity = Vector2.zero;
+    }
 }

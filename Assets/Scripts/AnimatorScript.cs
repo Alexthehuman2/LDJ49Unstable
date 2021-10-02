@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,5 +41,12 @@ public class AnimatorScript : MonoBehaviour
     public void FlipSpriteY()
     {
         _renderer.flipY = !_renderer.flipY;
+    }
+
+    public void ResetAnimation()
+    {
+        _renderer.flipY = false;
+        endJump();
+        endMoving();
     }
 }
