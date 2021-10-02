@@ -6,7 +6,7 @@ public class DeathCountSGT : MonoBehaviour
 {
     public static DeathCountSGT Instance { get; private set; }
 
-    public int val;
+    public int val = 0;
 
     private void Awake()
     {
