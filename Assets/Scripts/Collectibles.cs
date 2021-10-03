@@ -21,5 +21,6 @@ public class Collectibles : MonoBehaviour
     public void pickedUpKey()
     {
         key_picked_up = true;
+        gate1.SetActive(false);
     }
 }
