@@ -15,6 +15,10 @@ public class TriggerVolume : MonoBehaviour
     {
         if( !other.CompareTag(player) ) return;
         onTriggerEnterEvent.Invoke();
+        if (deleteAfterTrigger)
+        {
+            Destroy(this.gameObject);
+        }
     }
     
     private void OnTriggerExit2D(Collider2D other)
