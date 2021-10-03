@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TriggerVolume : MonoBehaviour
 {
     [SerializeField] private string player = "Player";
-    
+    [SerializeField] private bool deleteAfterTrigger = false;
     public UnityEvent onTriggerEnterEvent = default;
     public UnityEvent onTriggerExitEvent = default;
 
@@ -15,6 +15,10 @@ public class TriggerVolume : MonoBehaviour
     {
         if( !other.CompareTag(player) ) return;
         onTriggerEnterEvent.Invoke();
+        if (deleteAfterTrigger)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     
     private void OnTriggerExit2D(Collider2D other)
