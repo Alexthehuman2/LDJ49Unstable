@@ -7,7 +7,9 @@ public class AnimatorScript : MonoBehaviour
 {
     private Animator _anim;
     private SpriteRenderer _renderer;
-
+    [SerializeField] private AudioSource jump;
+    [SerializeField] private AudioSource step;
+    [SerializeField] private AudioSource land;
     private void Start()
     {
         _anim = GetComponent<Animator>();
@@ -17,10 +19,12 @@ public class AnimatorScript : MonoBehaviour
     public void startJump()
     {
         _anim.SetBool("isJumping", true);
+        jump.Play();
     }
     public void endJump()
     {
         _anim.SetBool("isJumping", false);
+        land.Play();
     }
 
     public void startMoving()
@@ -49,4 +53,5 @@ public class AnimatorScript : MonoBehaviour
         endJump();
         endMoving();
     }
+    
 }

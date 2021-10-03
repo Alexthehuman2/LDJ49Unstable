@@ -22,6 +22,7 @@ public class CharacterMovement2D : MonoBehaviour
 
     
     [SerializeField]private bool _isGrounded = false;
+    [SerializeField] private AudioSource walk;
     private bool _direction = true; // false left, true right
     private float _move = 0;
     
@@ -137,5 +138,10 @@ public class CharacterMovement2D : MonoBehaviour
         }
         
         _rigidbody.velocity = Vector2.zero;
+    }
+
+    public void playWalk()
+    {
+        walk.Play();
     }
 }

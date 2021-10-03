@@ -7,7 +7,7 @@ public class Collectibles : MonoBehaviour
     [SerializeField] private bool key_picked_up = false;
     [SerializeField] private bool collectible2_picked_up = false;
     [SerializeField] private bool Collectible3_picked_up = false;
-
+    [SerializeField] private AudioSource collectible;
     [SerializeField] private GameObject gate1;
 
     private void Start()
@@ -21,6 +21,7 @@ public class Collectibles : MonoBehaviour
     public void pickedUpKey()
     {
         key_picked_up = true;
+        collectible.Play();
         gate1.SetActive(false);
     }
 }
