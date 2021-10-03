@@ -20,4 +20,9 @@ public class CheckPointSGT : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void setValue(int value)
+    {
+        val = value;
+    }
 }

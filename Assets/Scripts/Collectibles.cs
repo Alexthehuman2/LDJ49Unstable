@@ -12,6 +12,26 @@ public class Collectibles : MonoBehaviour
 
     private void Start()
     {
+        switch (CheckPointSGT.Instance.val)
+        {
+            case 0:
+                break;
+            case 1:
+                key_picked_up = true;
+                break;
+            case 2:
+                key_picked_up = true;
+                collectible2_picked_up = true;
+                break;
+            case 3:
+                key_picked_up = true;
+                collectible2_picked_up = true;
+                Collectible3_picked_up = true;
+                break;
+            default:
+                break;
+
+        }
         if (key_picked_up)
         {
             gate1.SetActive(false);
@@ -22,6 +42,7 @@ public class Collectibles : MonoBehaviour
     {
         key_picked_up = true;
         collectible.Play();
+        CheckPointSGT.Instance.val++;
         gate1.SetActive(false);
     }
 }

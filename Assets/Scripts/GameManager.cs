@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject Spawn = default;
+    [SerializeField] private GameObject Spawn = default;
+    [SerializeField] private GameObject Checkpoint2 = default;
+    [SerializeField] private GameObject Checkpoint3 = default;
+    [SerializeField] private GameObject Checkpoint4 = default;
     private GameObject Player = default;
     private int checkpoint = 0;
     
     private void Start()
     {
-        Spawn = GameObject.FindGameObjectWithTag("Checkpoint");
         Player = GameObject.FindGameObjectWithTag("Player");
         checkpoint = CheckPointSGT.Instance.val;
-        MovePlayerToSpawn();
+        MovePlayerToSpawn(); 
     }
     
     private void MovePlayerToSpawn()
@@ -24,11 +26,12 @@ public class GameManager : MonoBehaviour
             case 0:
                 Player.transform.position = Spawn.transform.position;
                 break;
+            case 1:
+                Player.transform.position = Checkpoint2.transform.position;
+                break;
             default:
-                Debug.Log("This shouldn't happen, report this on Trello");
                 break;
         }
-        
     }
 
     public void OnPlayerDeath()

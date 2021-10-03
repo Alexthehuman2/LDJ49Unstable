@@ -22,6 +22,7 @@ public class CharacterMovement2D : MonoBehaviour
 
     
     [SerializeField]private bool _isGrounded = false;
+    [SerializeField] private bool can_move = true;
     [SerializeField] private AudioSource walk;
     private bool _direction = true; // false left, true right
     private float _move = 0;
@@ -36,23 +37,26 @@ public class CharacterMovement2D : MonoBehaviour
 
     private void Update()
     {
-        // Get axis input
-        var lastMove = _move;
-        _move = Input.GetAxis("Horizontal");
-
-        CheckStopMoving(_move, lastMove);
-        
-        // apply velocity
-        _rigidbody.velocity = new Vector2(moveSpeed * _move, _rigidbody.velocity.y);
-        
-        CheckDirection();
-        SlideDownWalls();
-
-        // Jump
-        if (IsGrounded() && Input.GetButtonDown("Jump"))
+        if (can_move)
         {
-            jumpEvent.Invoke();
-            _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            // Get axis input
+            var lastMove = _move;
+            _move = Input.GetAxis("Horizontal");
+
+            CheckStopMoving(_move, lastMove);
+
+            // apply velocity
+            _rigidbody.velocity = new Vector2(moveSpeed * _move, _rigidbody.velocity.y);
+
+            CheckDirection();
+            SlideDownWalls();
+
+            // Jump
+            if (IsGrounded() && Input.GetButtonDown("Jump"))
+            {
+                jumpEvent.Invoke();
+                _rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -144,4 +148,9 @@ public class CharacterMovement2D : MonoBehaviour
     {
         walk.Play();
     }
+
+    public void canMove(bool CanMove)
+    {
+        can_move = CanMove;
+    }    
 }
