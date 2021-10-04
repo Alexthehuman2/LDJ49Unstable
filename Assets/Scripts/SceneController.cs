@@ -11,10 +11,6 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.LoadScene(1); //Loads the first scene in build setting
         }
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-            SceneManager.LoadScene(2); //Loads the second etc.
-        }
     }
 
     public void StartGame()
@@ -30,5 +26,10 @@ public class SceneController : MonoBehaviour
     private void ExitGame()
     {
         Application.Quit(); //Exits the game when the game is built.
+    }
+
+    public void winGame()
+    {
+        SceneManager.LoadScene(2);
     }
 }

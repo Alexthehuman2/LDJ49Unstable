@@ -21,6 +21,12 @@ public class CameraMovement : MonoBehaviour
             case 1:
                 transform.position = new Vector3(transform.position.x, -10.5f, transform.position.z);
                 break;
+            case 2:
+                transform.position = new Vector3(transform.position.x, -21.5f, transform.position.z);
+                break;
+            case 3:
+                transform.position = new Vector3(transform.position.x, -58.5f, transform.position.z);
+                break;
             default:
                 break;
         }
@@ -34,6 +40,10 @@ public class CameraMovement : MonoBehaviour
                 transform.position -= new Vector3(0, speedToMove * Time.deltaTime, 0);
             }
             else if (transform.position.y > -21.5 && CheckPointSGT.Instance.val == 1)
+            {
+                transform.position -= new Vector3(0, speedToMove * Time.deltaTime, 0);
+            }
+            else if (transform.position.y > -58.5 && CheckPointSGT.Instance.val == 2)
             {
                 transform.position -= new Vector3(0, speedToMove * Time.deltaTime, 0);
             }

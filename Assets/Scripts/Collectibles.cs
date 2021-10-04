@@ -6,32 +6,37 @@ public class Collectibles : MonoBehaviour
 {
     [SerializeField] private bool key_picked_up = false;
     [SerializeField] private bool key2_picked_up = false;
-    [SerializeField] private bool Collectible3_picked_up = false;
+    [SerializeField] private bool key3_picked_up = false;
     [SerializeField] private AudioSource collectible;
     [SerializeField] private GameObject gate1;
     [SerializeField] private GameObject gate2;
+    [SerializeField] private GameObject gate3;
+    [SerializeField] private bool debug;
 
     private void Start()
     {
-        switch (CheckPointSGT.Instance.val)
+        if (debug)
         {
-            case 0:
-                break;
-            case 1:
-                key_picked_up = true;
-                break;
-            case 2:
-                key_picked_up = true;
-                key2_picked_up = true;
-                break;
-            case 3:
-                key_picked_up = true;
-                key2_picked_up = true;
-                Collectible3_picked_up = true;
-                break;
-            default:
-                break;
+            switch (CheckPointSGT.Instance.val)
+            {
+                case 0:
+                    break;
+                case 1:
+                    key_picked_up = true;
+                    break;
+                case 2:
+                    key_picked_up = true;
+                    key2_picked_up = true;
+                    break;
+                case 3:
+                    key_picked_up = true;
+                    key2_picked_up = true;
+                    key3_picked_up = true;
+                    break;
+                default:
+                    break;
 
+            }
         }
         if (key_picked_up)
         {
@@ -40,6 +45,10 @@ public class Collectibles : MonoBehaviour
         if (key2_picked_up)
         {
             gate2.SetActive(false);
+        }
+        if (key3_picked_up)
+        {
+            gate3.SetActive(false);
         }
     }
      
@@ -55,5 +64,10 @@ public class Collectibles : MonoBehaviour
         collectible.Play();
         gate2.SetActive(false);
     }
-
+    public void pickedUpKey3()
+    {
+        key3_picked_up = true;
+        collectible.Play();
+        gate3.SetActive(false);
+    }
 }
