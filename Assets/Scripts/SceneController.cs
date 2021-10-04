@@ -23,7 +23,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(0); //Loads the 0th Scene in Build Setting
     }
 
-    private void ExitGame()
+    public void ExitGame()
     {
         Application.Quit(); //Exits the game when the game is built.
     }
