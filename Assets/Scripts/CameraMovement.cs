@@ -29,7 +29,11 @@ public class CameraMovement : MonoBehaviour
     {
         if (canMove)
         {
-            if (transform.position.y > -10.5 && CheckPointSGT.Instance.val == 1)
+            if (transform.position.y > -10.5 && CheckPointSGT.Instance.val == 0)
+            {
+                transform.position -= new Vector3(0, speedToMove * Time.deltaTime, 0);
+            }
+            else if (transform.position.y > -21.5 && CheckPointSGT.Instance.val == 1)
             {
                 transform.position -= new Vector3(0, speedToMove * Time.deltaTime, 0);
             }

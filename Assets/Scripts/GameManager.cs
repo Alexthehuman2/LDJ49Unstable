@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
             case 1:
                 Player.transform.position = Checkpoint2.transform.position;
                 break;
+            case 2:
+                Player.transform.position = Checkpoint3.transform.position;
+                break;
             default:
                 break;
         }
